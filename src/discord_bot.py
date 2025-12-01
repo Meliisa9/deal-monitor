@@ -1,12 +1,21 @@
+import os
 import discord
-from .config import DISCORD_TOKEN
+from discord.ext import commands
+
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
-client = discord.Client(intents=intents)
+intents.message_content = True  # <-- DETTA VAR FELET
 
-@client.event
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+@bot.event
 async def on_ready():
-    print(f"Bot är online som {client.user}")
+    print(f"✅ Bot is online as {bot.user}")
 
-async def run_bot():
-    await client.start(DISCORD_TOKEN)
+@bot.command()
+async def ping(ctx):
+    await ctx.send("🏓 Pong! Boten funkar!")
+
+def run_bot():
+    bot.run(DISCORD_TOKEN)
