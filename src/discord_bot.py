@@ -36,7 +36,7 @@ def build_embed(deal):
     embed.add_field(name="🔥 Rabatt", value=f"{deal['discount']}%", inline=True)
     return embed
 
-@tasks.loop(minutes=30)
+@tasks.loop(minutes=2)
 async def scan_deals():
     all_deals = []
 
