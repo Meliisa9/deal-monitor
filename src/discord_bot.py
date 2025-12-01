@@ -4,10 +4,10 @@ import random
 from discord.ext import tasks, commands
 from dotenv import load_dotenv
 
-from scrapers.webhallen import get_webhallen_deals
-from scrapers.elgiganten import get_elgiganten_deals
-from scrapers.amazon import get_amazon_deals
-from scrapers.power import get_power_deals
+from .scrapers.webhallen import get_webhallen_deals
+from .scrapers.elgiganten import get_elgiganten_deals
+from .scrapers.amazon import get_amazon_deals
+from .scrapers.power import get_power_deals
 
 load_dotenv()
 
